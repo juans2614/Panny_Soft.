@@ -416,6 +416,18 @@ ALTER TABLE `recepcionista`
   ADD CONSTRAINT `recepcionista_ibfk_1` FOREIGN KEY (`id_cita`) REFERENCES `cita` (`Id_cita`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
+-- 
+-- Modificación de longitud de campos en las tablas 'cliente' y 'cita' con el propósito de implementar un sistema de seguridad bcrypt.
+-- 
+ALTER TABLE `cliente`
+MODIFY `contrasena` VARCHAR(255) NOT NULL;
+
+ALTER TABLE `esteticista`
+MODIFY `contraseña` VARCHAR(255) NOT NULL;
+
+ALTER TABLE `recepcionista`
+MODIFY `contraseña` VARCHAR (255) NOT NULL;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
